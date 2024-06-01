@@ -51,4 +51,20 @@ export const blueprintsRouter = createTRPCRouter({
       return blueprint;
     },
   ),
+  updateBlueprint: protectedProcedure
+    .input(
+      z.object({
+        id: z.string(),
+        name: z.string().min(1, "Name is required"),
+      }),
+    )
+    .mutation(async ({ ctx: { userId, db }, input }) => {
+      console.log("updateBlueprint runs");
+      userGuard(userId);
+
+      const blueprint = await db.blueprints.update(input.id, {
+        ...input,
+      });
+      return blueprint;
+    }),
 });

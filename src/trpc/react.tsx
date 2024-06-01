@@ -30,6 +30,7 @@ const createQueryClient = () =>
     mutationCache: new MutationCache({
       onError: (error) => {
         if (error instanceof TRPCClientError) {
+          console.log({ error });
           toast.error(`Error occured: ${error.message}`);
         }
       },
