@@ -1,17 +1,30 @@
 "use client";
 
-import { PlusIcon } from "lucide-react";
-import Link from "next/link";
+import { AnimatePresence } from "framer-motion";
+import { Loader2, PlusIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+
 import { Button } from "~/components/ui/button";
 import { Card } from "~/components/ui/card";
+import { Input } from "~/components/ui/input";
 import { Separator } from "~/components/ui/separator";
 import { Skeleton } from "~/components/ui/skeleton";
+import { useDebounce } from "~/hooks/use-debounce";
 import { api } from "~/trpc/react";
 
 const Projects = () => {
+  const [filter, setFilter] = useState<string | undefined>(undefined);
+  const debouncedFilter = useDebounce(filter, 500);
   const utils = api.useUtils();
-  const blueprintsQuery = api.blueprints.getUserBlueprints.useQuery();
+  const blueprintsQuery = api.blueprints.getUserBlueprints.useQuery(
+    {
+      filter: debouncedFilter ?? undefined,
+    },
+    {
+      placeholderData: (prev) => prev,
+    },
+  );
   const createBlueprintMutation = api.blueprints.createBlueprint.useMutation();
   const router = useRouter();
 
@@ -40,6 +53,19 @@ const Projects = () => {
       </p>
       <Separator className="mb-6 mt-2" />
 
+      <div className="mb-2 flex items-center gap-2">
+        <Input
+          disabled={blueprintsQuery.isLoading}
+          value={filter}
+          onChange={(e) => setFilter(e.currentTarget.value)}
+          className="max-w-[200px]"
+          placeholder="Search blueprints"
+        />
+        {blueprintsQuery.isFetching && (
+          <Loader2 className="h-5 w-5 animate-spin" />
+        )}
+      </div>
+
       <div className="max-w-4xl">
         {blueprintsQuery.isPending ? (
           <div className="flex flex-col gap-2">
@@ -48,6 +74,7 @@ const Projects = () => {
             ))}
           </div>
         ) : null}
+
         <div className="flex flex-col gap-2">
           {blueprintsQuery.data?.map((blueprint) => (
             <Card
