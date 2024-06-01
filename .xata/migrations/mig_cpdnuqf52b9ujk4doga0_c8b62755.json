@@ -1,0 +1,12 @@
+{
+  "id": "mig_cpdnuqf52b9ujk4doga0",
+  "parentID": "mig_cpdnumb7g140b3b256b0",
+  "checksum": "1:c8b62755ff3da41c534a1c97beeabc3f42d86ee4b1f5d985e5f86c2faa492bf7",
+  "operations": [
+    {
+      "addTable": {
+        "table": "blueprints"
+      }
+    }
+  ]
+}

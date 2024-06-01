@@ -1,0 +1,16 @@
+{
+  "id": "mig_cpdnvrn52b9ujk4dogb0",
+  "parentID": "mig_cpdnv9r7g140b3b256c0",
+  "checksum": "1:4e2275af0713008e01ef9139d928c96807b779aac1247ea471f47dcf54dc9bc1",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "name",
+          "type": "string"
+        },
+        "table": "blueprints"
+      }
+    }
+  ]
+}
