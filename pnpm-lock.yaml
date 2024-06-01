@@ -182,6 +182,9 @@ dependencies:
   react-textarea-autosize:
     specifier: ^8.5.3
     version: 8.5.3(@types/react@18.2.62)(react@18.2.0)
+  remeda:
+    specifier: ^2.0.0
+    version: 2.0.0
   resend:
     specifier: ^3.2.0
     version: 3.2.0
@@ -11959,6 +11962,12 @@ packages:
       mdast-util-to-hast: 13.1.0
       unified: 11.0.4
       vfile: 6.0.1
+    dev: false
+
+  /remeda@2.0.0:
+    resolution: {integrity: sha512-KBvW1gjFitqspnhSV+SLAy3g13Kj/NLb/3lLZyIIFC+D+qOYT7UnSQfNBc3+uh9KDBjFfu6lvcuV52TQhubuJg==}
+    dependencies:
+      type-fest: 4.18.3
     dev: false
 
   /repeat-element@1.1.4:

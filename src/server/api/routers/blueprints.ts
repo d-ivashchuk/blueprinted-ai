@@ -23,6 +23,22 @@ export const blueprintsRouter = createTRPCRouter({
         .getMany();
       return blueprints;
     }),
+  getUserBlueprintById: protectedProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      }),
+    )
+    .query(async ({ ctx: { userId, db }, input }) => {
+      console.log("getUserBlueprintById runs");
+      userGuard(userId);
+      const blueprint = await db.blueprints
+        .filter({
+          id: input.id,
+        })
+        .getFirst();
+      return blueprint;
+    }),
   createBlueprint: protectedProcedure.mutation(
     async ({ ctx: { userId, db } }) => {
       console.log("createBlueprint runs");

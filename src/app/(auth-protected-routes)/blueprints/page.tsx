@@ -1,6 +1,5 @@
 "use client";
 
-import { AnimatePresence } from "framer-motion";
 import { Loader2, PlusIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -13,7 +12,7 @@ import { Skeleton } from "~/components/ui/skeleton";
 import { useDebounce } from "~/hooks/use-debounce";
 import { api } from "~/trpc/react";
 
-const Projects = () => {
+const Blueprints = () => {
   const [filter, setFilter] = useState<string | undefined>(undefined);
   const debouncedFilter = useDebounce(filter, 500);
   const utils = api.useUtils();
@@ -81,7 +80,10 @@ const Projects = () => {
               className="flex flex-col gap-2 px-4 py-2 sm:flex-row sm:items-center sm:justify-between"
               key={blueprint.id}
               onClick={() => {
-                void router.push(`/projects/${blueprint.id}`);
+                void utils.blueprints.getUserBlueprintById.prefetch({
+                  id: blueprint.id,
+                });
+                void router.push(`/blueprints/${blueprint.id}`);
               }}
             >
               <div>
@@ -115,4 +117,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Blueprints;
