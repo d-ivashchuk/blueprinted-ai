@@ -1,6 +1,12 @@
 "use client";
 
-import { FolderDot, Inbox, MessageCircle, Settings } from "lucide-react";
+import {
+  CirclePlay,
+  FolderDot,
+  Inbox,
+  MessageCircle,
+  Settings,
+} from "lucide-react";
 
 import { usePathname } from "next/navigation";
 
@@ -44,17 +50,16 @@ export function AppShell({
 
   const links: NavProps["links"] = [
     {
-      title: "My GPTs",
+      title: "Blueprints",
       icon: FolderDot,
       variant: "ghost",
-      href: "/projects",
+      href: "/blueprints",
     },
     {
-      title: "Chats",
-      // label: "9",
-      icon: MessageCircle,
+      title: "Executions",
+      icon: CirclePlay,
       variant: "ghost",
-      isDisabled: true,
+      href: "/blueprints",
     },
   ];
 

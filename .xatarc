@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Dima-Ivashchuk-s-workspace-3t104m.us-east-1.xata.sh/db/blueprints",
+  "codegen": {
+    "output": "src/libs/xata/xata.ts"
+  }
+}

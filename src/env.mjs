@@ -21,16 +21,12 @@ export const env = createEnv({
 
     RESEND_API_KEY: z.string().optional(),
 
-    TRIGGER_SECRET_KEY: z.string().optional(),
-    TRIGGER_API_URL: z.string().optional(),
-
     LEMON_SQUEEZY_API_KEY: z.string().optional(),
     LEMON_SQUEEZY_STORE_ID: z.string().optional(),
     LEMON_SQUEEZY_WEBHOOK_SECRET: z.string().optional(),
     LEMON_SQUEEZY_WEBHOOK_URL: z.string().optional(),
 
     OPENAI_API_KEY: z.string().optional(),
-    GROQ_API_KEY: z.string().optional(),
 
     CLERK_SECRET_KEY: z.string().optional(),
     CLERK_WH_SECRET: z.string().optional(),
@@ -48,7 +44,6 @@ export const env = createEnv({
    */
   client: {
     NEXT_PUBLIC_DEPLOYMENT_URL: z.string(),
-    NEXT_PUBLIC_TRIGGER_PUBLIC_API_KEY: z.string(),
 
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string().optional(),
     NEXT_PUBLIC_CLERK_SIGN_IN_URL: z.string().optional(),
@@ -69,8 +64,6 @@ export const env = createEnv({
     POSTGRES_PRISMA_URL: process.env.POSTGRES_PRISMA_URL,
     POSTGRES_URL_NON_POOLING: process.env.POSTGRES_URL_NON_POOLING,
     NODE_ENV: process.env.NODE_ENV,
-    TRIGGER_SECRET_KEY: process.env.TRIGGER_API_KEY,
-    TRIGGER_API_URL: process.env.TRIGGER_API_URL,
     LEMON_SQUEEZY_API_KEY: process.env.LEMON_SQUEEZY_API_KEY,
     LEMON_SQUEEZY_STORE_ID: process.env.LEMON_SQUEEZY_STORE_ID,
     LEMON_SQUEEZY_WEBHOOK_SECRET: process.env.LEMON_SQUEEZY_WEBHOOK_SECRET,
@@ -84,15 +77,12 @@ export const env = createEnv({
       process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
     NEXT_PUBLIC_CLERK_SIGN_IN_URL: process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL,
     NEXT_PUBLIC_CLERK_SIGN_UP_URL: process.env.NEXT_PUBLIC_CLERK_SIGN_UP_URL,
-    NEXT_PUBLIC_TRIGGER_PUBLIC_API_KEY:
-      process.env.NEXT_PUBLIC_TRIGGER_PUBLIC_API_KEY,
     CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
     CLERK_WH_SECRET: process.env.CLERK_WH_SECRET,
     NEXT_PUBLIC_LOGSNAG_TOKEN: process.env.NEXT_PUBLIC_LOGSNAG_TOKEN,
     NEXT_PUBLIC_LOGSNAG_PROJECT: process.env.NEXT_PUBLIC_LOGSNAG_PROJECT,
     NEXT_PUBLIC_LOGSNAG_DISABLE_TRACKING:
       process.env.NEXT_PUBLIC_LOGSNAG_DISABLE_TRACKING,
-    GROQ_API_KEY: process.env.GROQ_API_KEY,
     UPSTASH_REDIS_REST_URL: process.env.UPSTASH_REDIS_REST_URL,
     UPSTASH_REDIS_REST_TOKEN: process.env.UPSTASH_REDIS_REST_TOKEN,
     BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,

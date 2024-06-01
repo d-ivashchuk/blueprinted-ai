@@ -3,18 +3,13 @@
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
 import * as Sentry from "@sentry/nextjs";
-import { db } from "~/server/db";
 
 Sentry.init({
   dsn: process.env.SENTRY_DSN,
 
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 1,
-  integrations: [
-    new Sentry.Integrations.Prisma({
-      client: db,
-    }),
-  ],
+  integrations: [],
 
   // Setting this option to true will print useful information to the console while you're setting up Sentry.
   debug: false,

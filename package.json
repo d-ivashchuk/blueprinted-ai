@@ -6,7 +6,8 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "xata": "xata"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.12",
@@ -45,6 +46,7 @@
     "@trpc/server": "next",
     "@upstash/redis": "^1.30.0",
     "@vercel/blob": "^0.23.2",
+    "@xata.io/client": "^0.29.5",
     "ai": "^3.1.8",
     "axios": "^1.6.8",
     "boring-avatars": "^1.10.2",
@@ -78,6 +80,7 @@
     "uuid": "^9.0.1",
     "uvcanvas": "^0.2.1",
     "vaul": "^0.9.1",
+    "xata": "^0.2.0",
     "zod": "^3.22.4",
     "zod-to-json-schema": "^3.23.0"
   },
