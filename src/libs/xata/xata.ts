@@ -10,8 +10,8 @@ const tables = [
   {
     name: "blueprints",
     columns: [
-      { name: "userId", type: "string", unique: true },
       { name: "name", type: "string" },
+      { name: "userId", type: "string" },
     ],
   },
 ] as const;

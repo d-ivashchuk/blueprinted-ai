@@ -1,0 +1,13 @@
+{
+  "id": "mig_cpdo5nr7g140b3b256d0",
+  "parentID": "mig_cpdnvrn52b9ujk4dogb0",
+  "checksum": "1:c343284f3c2e4468ad49f69b333086000fa3a4c3c58f8d73d86975ad4a123c03",
+  "operations": [
+    {
+      "removeColumn": {
+        "column": "userId",
+        "table": "blueprints"
+      }
+    }
+  ]
+}
