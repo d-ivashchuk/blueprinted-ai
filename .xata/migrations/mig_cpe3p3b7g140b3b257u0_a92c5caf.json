@@ -1,0 +1,17 @@
+{
+  "id": "mig_cpe3p3b7g140b3b257u0",
+  "parentID": "mig_cpdo5qn52b9ujk4dogf0",
+  "checksum": "1:a92c5caf1a393ae57b9782589c82672520c082464b4f45b982d51bc19776f9e1",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "isActive",
+          "type": "bool",
+          "defaultValue": "true"
+        },
+        "table": "blueprints"
+      }
+    }
+  ]
+}
