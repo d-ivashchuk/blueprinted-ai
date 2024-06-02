@@ -12,7 +12,6 @@ const tables = [
     columns: [
       { name: "name", type: "string" },
       { name: "userId", type: "string" },
-      { name: "isActive", type: "bool", defaultValue: "true" },
     ],
   },
 ] as const;
