@@ -55,7 +55,8 @@ export const blueprintsRouter = createTRPCRouter({
     .input(
       z.object({
         id: z.string(),
-        name: z.string().min(1, "Name is required"),
+        name: z.string().min(1, "Name is required").optional(),
+        isActive: z.boolean().optional(),
       }),
     )
     .mutation(async ({ ctx: { userId, db }, input }) => {

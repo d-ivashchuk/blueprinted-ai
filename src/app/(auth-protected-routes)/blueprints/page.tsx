@@ -1,5 +1,6 @@
 "use client";
 
+import { Switch } from "~/components/ui/switch";
 import { Loader2, PlusIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -25,7 +26,14 @@ const Blueprints = () => {
     },
   );
   const createBlueprintMutation = api.blueprints.createBlueprint.useMutation();
+  const updateBlueprintMutation = api.blueprints.updateBlueprint.useMutation({
+    onSuccess: () => {
+      void utils.blueprints.getUserBlueprints.invalidate();
+    },
+  });
   const router = useRouter();
+
+  console.log({ blueprints: blueprintsQuery.data });
 
   return (
     <div>
@@ -101,14 +109,30 @@ const Blueprints = () => {
                   </p>
                 </div>
               </div>
-              <Button
-                variant="outline"
-                onClick={() => {
-                  void router.push(`/blueprints/${blueprint.id}`);
-                }}
-              >
-                Edit
-              </Button>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2">
+                  <p className="text-muted-foreground">Active</p>
+                  <Switch
+                    checked={!!blueprint.isActive}
+                    onCheckedChange={() => {
+                      updateBlueprintMutation.mutate({
+                        id: blueprint.id,
+                        isActive: blueprint.isActive ? false : true,
+                      });
+                    }}
+                    aria-readonly
+                    onClick={(e) => e.stopPropagation()}
+                  />
+                </div>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    void router.push(`/blueprints/${blueprint.id}`);
+                  }}
+                >
+                  Edit
+                </Button>
+              </div>
             </Card>
           ))}
         </div>
