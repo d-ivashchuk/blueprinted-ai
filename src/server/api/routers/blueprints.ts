@@ -68,4 +68,17 @@ export const blueprintsRouter = createTRPCRouter({
       });
       return blueprint;
     }),
+  deleteBlueprint: protectedProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      }),
+    )
+    .mutation(async ({ ctx: { userId, db }, input }) => {
+      console.log("deleteBlueprint runs");
+      userGuard(userId);
+
+      const blueprint = await db.blueprints.delete(input.id);
+      return blueprint;
+    }),
 });

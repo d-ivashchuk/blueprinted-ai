@@ -42,11 +42,9 @@ export function AppShell({
 
   const isInSigninSignupRoute =
     pathname.includes("/sign-in") || pathname.includes("/sign-up");
-  const isWidgetRoute = pathname.includes("/w/");
-  const isWidgetPreviewRoute = pathname.includes("/widget-preview");
+  const isBlueprintBuilderRoute = pathname.includes("/blueprints/");
 
-  const shallSkipShellLayout =
-    isInSigninSignupRoute || isWidgetRoute || isWidgetPreviewRoute;
+  const shallSkipShellLayout = isInSigninSignupRoute || isBlueprintBuilderRoute;
 
   const links: NavProps["links"] = [
     {
