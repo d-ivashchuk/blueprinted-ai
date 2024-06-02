@@ -7,14 +7,6 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    POSTGRES_PRISMA_URL:
-      process.env.NODE_ENV === "production"
-        ? z.string().url()
-        : z.string().optional(),
-    POSTGRES_URL_NON_POOLING:
-      process.env.NODE_ENV === "production"
-        ? z.string().url()
-        : z.string().optional(),
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
